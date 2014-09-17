@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
                 <outlet property="button" destination="Ivl-NO-knK" id="1fl-g4-8iU"/>
-                <outlet property="textField" destination="n00-UC-pef" id="Rzp-Hh-hIY"/>
+                <outlet property="textField" destination="aHn-Co-CAg" id="33Z-NT-KdE"/>
                 <outlet property="textView" destination="n00-UC-pef" id="9eg-Oi-Twq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
