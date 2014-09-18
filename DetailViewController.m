@@ -8,6 +8,10 @@
 
 #import "DetailViewController.h"
 
+static NSString * const entryKey = @"entryKey";
+static NSString * const titleKey = @"titleKey";
+static NSString * const textKey = @"textKey";
+
 @interface DetailViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
@@ -35,8 +39,68 @@
     UIButton *button = [[UIButton alloc] init];
     [self.view addSubview:button];
     
+    NSDictionary *myDict = [[NSUserDefaults standardUserDefaults] objectForKey:entryKey];
+    
+    [self updateWithDictionary:myDict];
+    
 
     
+}
+
+
+- (void)save {
+    
+    NSDictionary *entry = @{titleKey: self.textField.text, textKey: self.textView.text};
+    [[NSUserDefaults standardUserDefaults] setObject:entry forKey:entryKey];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+}
+
+
+
+
+- (void)updateWithDictionary:(NSDictionary *)dictionary {
+    
+    /*
+    NSNumber *score = dictionary[scoreKey];
+    
+    if (score) {
+        self.label.text = [score stringValue];
+        self.stepper.value = [score doubleValue];
+    }
+    */
+    
+    NSString *title = dictionary[titleKey];
+    self.textField.text = title;
+    
+    NSString *entryText = dictionary[textKey];
+    self.textView.text = entryText;
+    
+                            /*
+    if (name) {
+        self.textField.text = name;
+    }
+                             */
+    
+}
+
+
+
+
+
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    [self save];
+}
+
+
+- (void)textViewDidChange:(UITextView *)textView {
+    
+    [self save];
 }
 
 
