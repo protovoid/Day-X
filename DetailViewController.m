@@ -63,14 +63,7 @@ static NSString * const textKey = @"textKey";
 
 - (void)updateWithDictionary:(NSDictionary *)dictionary {
     
-    /*
-    NSNumber *score = dictionary[scoreKey];
-    
-    if (score) {
-        self.label.text = [score stringValue];
-        self.stepper.value = [score doubleValue];
-    }
-    */
+
     
     NSString *title = dictionary[titleKey];
     self.textField.text = title;
@@ -78,11 +71,7 @@ static NSString * const textKey = @"textKey";
     NSString *entryText = dictionary[textKey];
     self.textView.text = entryText;
     
-                            /*
-    if (name) {
-        self.textField.text = name;
-    }
-                             */
+
     
 }
 

@@ -9,6 +9,9 @@
 #import "DXAppDelegate.h"
 #import "DetailViewController.h"
 
+static NSString * const launchCount = @"launchCount";
+// static NSString * const launchCountValue = @"launchCountValue";
+
 @implementation DXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,8 +25,27 @@
     
     self.window.rootViewController = navigationController;
     
+    
+    
+    // day 7
+    NSNumber *launchCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"launchCount"];
+    
+    if (!launchCount) {
+        launchCount = @1;
+    } else {
+        launchCount = @([launchCount integerValue] + 1);
+    }
+    
+    launchCount = @([launchCount integerValue] + 1);
+    
+    NSLog(@"launchCount %@", launchCount);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"launchCount" forKey:@"launchCount"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
-
+    
+     
     
     
     
@@ -31,6 +53,11 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
