@@ -47,12 +47,15 @@ static NSString * const textKey = @"textKey";
     
     [self updateWithDictionary:myDict];
     
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
 
     
 }
 
 
-- (void)save {
+- (void)save:(id)sender {
     
     NSDictionary *entry = @{titleKey: self.textField.text, textKey: self.textView.text};
     if (self.dictionary) {
@@ -61,7 +64,7 @@ static NSString * const textKey = @"textKey";
         [[ESEntryController sharedInstance] addEntry:entry];
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    // [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -88,7 +91,7 @@ static NSString * const textKey = @"textKey";
 
 
 
-
+/*
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
     [self save];
@@ -99,7 +102,7 @@ static NSString * const textKey = @"textKey";
     
     [self save];
 }
-
+*/
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

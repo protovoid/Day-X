@@ -88,6 +88,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63DE92F919CD30EA0020B71B /* DXListView */ = {
+			isa = PBXGroup;
+			children = (
+				63843FBC19CBC91C00183C46 /* DXListViewController.h */,
+				63843FBD19CBC91C00183C46 /* DXListViewController.m */,
+				63843FBF19CBC98600183C46 /* DXListTableViewDataSource.h */,
+				63843FC019CBC98600183C46 /* DXListTableViewDataSource.m */,
+			);
+			name = DXListView;
+			sourceTree = "<group>";
+		};
+		63DE92FA19CD30FD0020B71B /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				63843FA619C9226300183C46 /* DetailViewController.h */,
+				63843FA719C9226300183C46 /* DetailViewController.m */,
+				63843FA819C9226300183C46 /* DetailViewController.xib */,
+			);
+			name = DetailView;
+			sourceTree = "<group>";
+		};
 		711A505D19388095005642EF = {
 			isa = PBXGroup;
 			children = (
@@ -123,15 +144,10 @@
 			children = (
 				711A507819388095005642EF /* DXAppDelegate.h */,
 				711A507919388095005642EF /* DXAppDelegate.m */,
-				63843FA619C9226300183C46 /* DetailViewController.h */,
-				63843FA719C9226300183C46 /* DetailViewController.m */,
-				63843FA819C9226300183C46 /* DetailViewController.xib */,
-				63843FBC19CBC91C00183C46 /* DXListViewController.h */,
-				63843FBD19CBC91C00183C46 /* DXListViewController.m */,
-				63843FBF19CBC98600183C46 /* DXListTableViewDataSource.h */,
-				63843FC019CBC98600183C46 /* DXListTableViewDataSource.m */,
 				63843FB919CBC90D00183C46 /* ESEntryController.h */,
 				63843FBA19CBC90D00183C46 /* ESEntryController.m */,
+				63DE92F919CD30EA0020B71B /* DXListView */,
+				63DE92FA19CD30FD0020B71B /* DetailView */,
 				711A507B19388095005642EF /* Images.xcassets */,
 				711A507019388095005642EF /* Supporting Files */,
 			);
