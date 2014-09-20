@@ -52,12 +52,9 @@
     
     NSDictionary *dict = [ESEntryController sharedInstance].entries[indexPath.row];
     
-    [detailViewController updateWithDictionary:dict];
-    
+    detailViewController.dictionary = dict;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
-    
                           
 }
 

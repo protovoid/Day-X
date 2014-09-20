@@ -10,4 +10,23 @@
 
 @implementation DXEntry
 
+
+/*
+-(NSDictionary *)entryDictionary {
+    NSMutableDictionary *entryDictionary = [NSMutableDictionary new];
+    if (entryDictionary != nil) {
+        entryDictionary[@"title"] = self.title;
+    }
+    
+    return entryDictionary;
+}
+
+
+/*
+-(id)initWithDictionary:(NSDictionary *)dictionary {
+    
+}
+ */
+
+
 @end

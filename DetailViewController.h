@@ -13,6 +13,9 @@
 @interface DetailViewController : UIViewController
 
 
+@property (strong, nonatomic) NSDictionary *dictionary;
+
 - (void)updateWithDictionary:(NSDictionary *)dictionary;
+
 
 @end

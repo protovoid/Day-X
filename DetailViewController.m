@@ -13,11 +13,11 @@
 
 @interface DetailViewController () <UITextFieldDelegate, UITextViewDelegate>
 
-@property (strong, nonatomic) NSDictionary *dictionary;
 
-@property (strong, nonatomic) IBOutlet UITextField *textField;
-@property (strong, nonatomic) IBOutlet UITextView *textView;
-@property (strong, nonatomic) IBOutlet UIButton *button;
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @property (nonatomic, copy) NSString *placeholder;
 
@@ -33,8 +33,9 @@
     self.view.backgroundColor = [UIColor yellowColor];
     self.textField.delegate = self;
     self.textView.delegate = self;
+    self.textField.placeholder = @"Title";
 
-    
+    [self updateWithDictionary:self.dictionary];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;

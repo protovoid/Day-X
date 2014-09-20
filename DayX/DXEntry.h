@@ -15,4 +15,7 @@
 @property (nonatomic, strong) const NSString *note;
 @property (nonatomic, strong) const NSDate *timestamp;
 
+-(NSDictionary *)entryDictionary;
+-(id)initWithDictionary:(NSDictionary *)dictionary;
+
 @end

@@ -22,20 +22,13 @@ static NSString * const launchCount = @"launchCount";
     
     DXListViewController *listViewController = [DXListViewController new];
     
-    
-    // DetailViewController *detailViewController = [DetailViewController new];
-    
-    // UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listViewController];
     
     self.window.rootViewController = navigationController;
     
-    // self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
-    
-    
     
     // day 7
+    /*
     NSNumber *launchCount = [[NSUserDefaults standardUserDefaults] objectForKey:@"launchCount"];
     
     if (!launchCount) {
@@ -51,6 +44,7 @@ static NSString * const launchCount = @"launchCount";
     [[NSUserDefaults standardUserDefaults] setObject:@"launchCount" forKey:@"launchCount"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+     */
 
     
      
