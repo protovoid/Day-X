@@ -21,6 +21,8 @@ static NSString * const textKey = @"textKey";
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UIButton *button;
 
+@property (nonatomic, copy) NSString *placeholder;
+
 
 @end
 
@@ -38,6 +40,7 @@ static NSString * const textKey = @"textKey";
     [self.view addSubview:textView];
     
     UITextField *textField = [[UITextField alloc] init];
+    self.textField.placeholder = @"Subject";
     [self.view addSubview:textField];
     
     UIButton *button = [[UIButton alloc] init];
