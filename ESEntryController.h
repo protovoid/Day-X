@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const TitleKey = @"title";
-static NSString * const TextKey = @"text";
+static NSString * const TitleKey = @"titleKey";
+static NSString * const TextKey = @"textKey";
 
 @interface ESEntryController : NSObject
 

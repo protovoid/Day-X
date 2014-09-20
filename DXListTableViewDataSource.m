@@ -24,7 +24,7 @@
     
     NSDictionary *dict = [ESEntryController sharedInstance].entries[indexPath.row];
     
-    NSString *title = dict[@"title"];
+    NSString *title = dict[TitleKey];
     
     cell.textLabel.text = title;
     

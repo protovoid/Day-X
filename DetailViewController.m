@@ -9,9 +9,7 @@
 #import "DetailViewController.h"
 #import "ESEntryController.h"
 
-static NSString * const entryKey = @"entryKey";
-static NSString * const titleKey = @"titleKey";
-static NSString * const textKey = @"textKey";
+
 
 @interface DetailViewController () <UITextFieldDelegate, UITextViewDelegate>
 
@@ -31,24 +29,12 @@ static NSString * const textKey = @"textKey";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Day X";
-    self.view.backgroundColor = [UIColor grayColor];
+    self.title = @"New Entry";
+    self.view.backgroundColor = [UIColor yellowColor];
     self.textField.delegate = self;
     self.textView.delegate = self;
 
-    UITextView *textView = [[UITextView alloc] init];
-    [self.view addSubview:textView];
     
-    UITextField *textField = [[UITextField alloc] init];
-    self.textField.placeholder = @"Subject";
-    [self.view addSubview:textField];
-    
-    UIButton *button = [[UIButton alloc] init];
-    [self.view addSubview:button];
-    
-    NSDictionary *myDict = [[NSUserDefaults standardUserDefaults] objectForKey:entryKey];
-    
-    [self updateWithDictionary:myDict];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;
@@ -60,7 +46,9 @@ static NSString * const textKey = @"textKey";
 
 - (void)save:(id)sender {
     
-    NSDictionary *entry = @{titleKey: self.textField.text, textKey: self.textView.text};
+
+    
+    NSDictionary *entry = @{TitleKey: self.textField.text, TextKey: self.textView.text};
     if (self.dictionary) {
         [[ESEntryController sharedInstance] replaceEntry:self.dictionary withEntry:entry];
     } else {
@@ -79,10 +67,10 @@ static NSString * const textKey = @"textKey";
 
     self.dictionary = dictionary;
     
-    NSString *title = dictionary[titleKey];
+    NSString *title = dictionary[TitleKey];
     self.textField.text = title;
     
-    NSString *entryText = dictionary[textKey];
+    NSString *entryText = dictionary[TextKey];
     self.textView.text = entryText;
     
 

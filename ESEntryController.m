@@ -74,11 +74,8 @@ static NSString * const entryListKey = @"entryList";
         
     }
     
-
-    
-    
-    
 }
+
 
 - (void)loadFromDefaults {
     NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"array"];

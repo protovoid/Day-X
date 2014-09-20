@@ -27,7 +27,11 @@ static NSString * const launchCount = @"launchCount";
     
     // UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    
+    self.window.rootViewController = navigationController;
+    
+    // self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
     
     
     

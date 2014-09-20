@@ -12,6 +12,7 @@
 		63843FBB19CBC90D00183C46 /* ESEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63843FBA19CBC90D00183C46 /* ESEntryController.m */; };
 		63843FBE19CBC91C00183C46 /* DXListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63843FBD19CBC91C00183C46 /* DXListViewController.m */; };
 		63843FC119CBC98600183C46 /* DXListTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 63843FC019CBC98600183C46 /* DXListTableViewDataSource.m */; };
+		63DE930019CDEC150020B71B /* DXEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DE92FF19CDEC150020B71B /* DXEntry.m */; };
 		711A506A19388095005642EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A506919388095005642EF /* Foundation.framework */; };
 		711A506C19388095005642EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A506B19388095005642EF /* CoreGraphics.framework */; };
 		711A506E19388095005642EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A506D19388095005642EF /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		63843FBD19CBC91C00183C46 /* DXListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXListViewController.m; path = ../DXListViewController.m; sourceTree = "<group>"; };
 		63843FBF19CBC98600183C46 /* DXListTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXListTableViewDataSource.h; path = ../DXListTableViewDataSource.h; sourceTree = "<group>"; };
 		63843FC019CBC98600183C46 /* DXListTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXListTableViewDataSource.m; path = ../DXListTableViewDataSource.m; sourceTree = "<group>"; };
+		63DE92FE19CDEC150020B71B /* DXEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXEntry.h; sourceTree = "<group>"; };
+		63DE92FF19CDEC150020B71B /* DXEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXEntry.m; sourceTree = "<group>"; };
 		711A506619388095005642EF /* DayX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		711A506919388095005642EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		711A506B19388095005642EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,8 @@
 			children = (
 				711A507819388095005642EF /* DXAppDelegate.h */,
 				711A507919388095005642EF /* DXAppDelegate.m */,
+				63DE92FE19CDEC150020B71B /* DXEntry.h */,
+				63DE92FF19CDEC150020B71B /* DXEntry.m */,
 				63843FB919CBC90D00183C46 /* ESEntryController.h */,
 				63843FBA19CBC90D00183C46 /* ESEntryController.m */,
 				63DE92F919CD30EA0020B71B /* DXListView */,
@@ -283,6 +288,7 @@
 				63843FC119CBC98600183C46 /* DXListTableViewDataSource.m in Sources */,
 				63843FBB19CBC90D00183C46 /* ESEntryController.m in Sources */,
 				711A507A19388095005642EF /* DXAppDelegate.m in Sources */,
+				63DE930019CDEC150020B71B /* DXEntry.m in Sources */,
 				711A507619388095005642EF /* main.m in Sources */,
 				63843FBE19CBC91C00183C46 /* DXListViewController.m in Sources */,
 				63843FA919C9226300183C46 /* DetailViewController.m in Sources */,

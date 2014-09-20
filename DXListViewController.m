@@ -27,19 +27,26 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     
     self.dataSource = [DXListTableViewDataSource new];
+    [self.dataSource registerTableView:self.tableView];
     self.tableView.dataSource = self.dataSource;
                       
     self.tableView.delegate = self;
+    self.title = @"Entries";
+    self.tableView.backgroundColor = [UIColor yellowColor];
+    
+    
+    [self.view addSubview:self.tableView];
     
     // add + button to add entry
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newEntry:)];
+    
     self.navigationItem.rightBarButtonItem = addButton;
     
 }
                       
  
                       
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DetailViewController *detailViewController = [DetailViewController new];
     
@@ -47,7 +54,9 @@
     
     [detailViewController updateWithDictionary:dict];
     
+    
     [self.navigationController pushViewController:detailViewController animated:YES];
+    
     
                           
 }
