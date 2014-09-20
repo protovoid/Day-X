@@ -7,6 +7,7 @@
 //
 
 #import "DXAppDelegate.h"
+#import "DXListViewController.h"
 #import "DetailViewController.h"
 
 static NSString * const launchCount = @"launchCount";
@@ -19,11 +20,14 @@ static NSString * const launchCount = @"launchCount";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    DetailViewController *detailViewController = [DetailViewController new];
+    DXListViewController *listViewController = [DXListViewController new];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     
-    self.window.rootViewController = navigationController;
+    // DetailViewController *detailViewController = [DetailViewController new];
+    
+    // UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
     
     
     

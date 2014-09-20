@@ -7,12 +7,15 @@
 //
 
 #import "DetailViewController.h"
+#import "ESEntryController.h"
 
 static NSString * const entryKey = @"entryKey";
 static NSString * const titleKey = @"titleKey";
 static NSString * const textKey = @"textKey";
 
 @interface DetailViewController () <UITextFieldDelegate, UITextViewDelegate>
+
+@property (strong, nonatomic) NSDictionary *dictionary;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
@@ -29,6 +32,7 @@ static NSString * const textKey = @"textKey";
     self.title = @"Day X";
     self.view.backgroundColor = [UIColor grayColor];
     self.textField.delegate = self;
+    self.textView.delegate = self;
 
     UITextView *textView = [[UITextView alloc] init];
     [self.view addSubview:textView];
@@ -51,10 +55,13 @@ static NSString * const textKey = @"textKey";
 - (void)save {
     
     NSDictionary *entry = @{titleKey: self.textField.text, textKey: self.textView.text};
-    [[NSUserDefaults standardUserDefaults] setObject:entry forKey:entryKey];
+    if (self.dictionary) {
+        [[ESEntryController sharedInstance] replaceEntry:self.dictionary withEntry:entry];
+    } else {
+        [[ESEntryController sharedInstance] addEntry:entry];
+    }
     
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -64,6 +71,7 @@ static NSString * const textKey = @"textKey";
 - (void)updateWithDictionary:(NSDictionary *)dictionary {
     
 
+    self.dictionary = dictionary;
     
     NSString *title = dictionary[titleKey];
     self.textField.text = title;
