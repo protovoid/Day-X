@@ -43,7 +43,11 @@
     self.navigationItem.rightBarButtonItem = addButton;
     
 }
-                      
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
  
                       
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
