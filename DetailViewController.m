@@ -15,10 +15,11 @@
 
 
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) IBOutlet UIButton *button;
 
+@property (strong, nonatomic) DXEntry *myEntry;
 @property (nonatomic, copy) NSString *placeholder;
 
 
@@ -35,7 +36,8 @@
     self.textView.delegate = self;
     self.textField.placeholder = @"Title";
 
-    [self updateWithDictionary:self.dictionary];
+    // [self updateWithDictionary:self.dictionary];
+    [self updateEntry:_myEntry];
     
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;
@@ -47,13 +49,19 @@
 
 - (void)save:(id)sender {
     
-
+    // NSDictionary *entry = @{TitleKey: self.textField.text, TextKey: self.textView.text};
     
-    NSDictionary *entry = @{TitleKey: self.textField.text, TextKey: self.textView.text};
-    if (self.dictionary) {
-        [[ESEntryController sharedInstance] replaceEntry:self.dictionary withEntry:entry];
+    DXEntry *saveEntry = [DXEntry new];
+    saveEntry.title = self.textField.text;
+    saveEntry.note = self.textView.text;
+    NSDate *now = [NSDate date];
+    saveEntry.timestamp = now;
+    // NSLog(@"%@", now);
+    
+    if (self.myEntry) {
+        [[ESEntryController sharedInstance] replaceEntry:self.myEntry withEntry:saveEntry];
     } else {
-        [[ESEntryController sharedInstance] addEntry:entry];
+        [[ESEntryController sharedInstance] addEntry:self.myEntry];
     }
     
     // [self.navigationController popViewControllerAnimated:YES];
@@ -61,26 +69,17 @@
 }
 
 
-
-
-- (void)updateWithDictionary:(NSDictionary *)dictionary {
-    
-
-    self.dictionary = dictionary;
-    
-    NSString *title = dictionary[TitleKey];
-    self.textField.text = title;
-    
-    NSString *entryText = dictionary[TextKey];
-    self.textView.text = entryText;
-    
-
-    
+- (void)updateEntry:(DXEntry *)entry; {
+    self.myEntry = entry;
 }
 
-
-
-
+//- (void)updateWithDictionary:(DXEntry *)entry {
+//    self.dictionary = dictionary;
+//    NSString *title = dictionary[TitleKey];
+//    self.textField.text = title;
+//    NSString *entryText = dictionary[TextKey];
+//    self.textView.text = entryText;
+//}
 
 
 /*

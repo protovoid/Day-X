@@ -8,7 +8,7 @@
 
 #import "ESEntryController.h"
 
-static NSString * const entryListKey = @"entryList";
+// static NSString * const entryListKey = @"entryList";
 
 @interface ESEntryController ()
 @property (nonatomic, strong) NSArray *entries;
@@ -32,7 +32,7 @@ static NSString * const entryListKey = @"entryList";
 }
 
 
-- (void)addEntry:(NSDictionary *)entry; {
+- (void)addEntry:(DXEntry *)entry; {
     
     NSMutableArray *mutableEntries = [[NSMutableArray alloc] initWithArray:self.entries]; // ref all objects into a new mutable array
     
@@ -45,7 +45,7 @@ static NSString * const entryListKey = @"entryList";
 }
 
 
-- (void)removeEntry:(NSDictionary *)entry; {
+- (void)removeEntry:(DXEntry *)entry; {
     
     NSMutableArray *mutableEntries = [self.entries mutableCopy]; // ref all objects into a new mutable array
     
@@ -59,13 +59,13 @@ static NSString * const entryListKey = @"entryList";
 }
 
 
-- (void)replaceEntry:(NSDictionary *)oldEntry withEntry:(NSDictionary *)newEntry; {
+- (void)replaceEntry:(DXEntry *)oldEntry withEntry:(DXEntry *)newEntry; {
     
     if ([self.entries containsObject:oldEntry]) {
         
         NSMutableArray *mutableEntries = [self.entries mutableCopy]; // ref all objects into a new mutable array
         
-        NSUInteger index = [mutableEntries indexOfObjectIdenticalTo:oldEntry];
+        NSUInteger index = [mutableEntries indexOfObject:oldEntry];
         [mutableEntries replaceObjectAtIndex:index withObject:newEntry];
         
         self.entries = [mutableEntries copy];
@@ -78,10 +78,10 @@ static NSString * const entryListKey = @"entryList";
 
 
 - (void)loadFromDefaults {
-    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"array"];
+    NSArray *myEntries = [[NSUserDefaults standardUserDefaults] objectForKey:@"myEntries"];
     
-    if (array) {
-        self.entries = array;
+    if (myEntries) {
+        self.entries = myEntries;
     }
     
     
@@ -89,7 +89,7 @@ static NSString * const entryListKey = @"entryList";
 
 
 - (void)synchronize {
-    [[NSUserDefaults standardUserDefaults] setObject:self.entries forKey:@"array"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.entries forKey:@"myEntries"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     

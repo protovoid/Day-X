@@ -10,6 +10,7 @@
 #import "DXListTableViewDataSource.h"
 #import "DetailViewController.h"
 #import "ESEntryController.h"
+#import "DXEntry.h"
 
 @interface DXListViewController () <UITableViewDelegate>
 
@@ -57,9 +58,12 @@
     
     DetailViewController *detailViewController = [DetailViewController new];
     
-    NSDictionary *dict = [ESEntryController sharedInstance].entries[indexPath.row];
+    DXEntry *editEntry = [ESEntryController sharedInstance].entries[indexPath.row];
+    [detailViewController updateEntry:editEntry];
     
-    detailViewController.dictionary = dict;
+    
+    // NSDictionary *dict = [ESEntryController sharedInstance].entries[indexPath.row];
+    // detailViewController.dictionary = dict;
     
     [self.navigationController pushViewController:detailViewController animated:YES];
                           
@@ -78,7 +82,7 @@
 }
 
 
-
+/*
 // sets row editing style
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleNone; // no delete button
@@ -95,6 +99,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // delete code goes here
+    /*
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[ESEntryController sharedInstance] removeEntry:indexPath.row];
         
@@ -103,12 +108,13 @@
         // create new instance of appropriate class
         // insert it into array and add a new row to the tableview
     }
+     
 
     //[[ESEntryController sharedInstance] removeEntry:entry];
     [tableView reloadData];
     NSLog(@"Deleted row.");
 }
-
+*/
 
 
 

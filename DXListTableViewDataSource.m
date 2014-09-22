@@ -8,6 +8,7 @@
 
 #import "DXListTableViewDataSource.h"
 #import "ESEntryController.h"
+#import "DXEntry.h"
 
 
 @implementation DXListTableViewDataSource
@@ -21,12 +22,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    DXEntry *entry = [ESEntryController sharedInstance].entries[indexPath.row];
     
-    NSDictionary *dict = [ESEntryController sharedInstance].entries[indexPath.row];
+//    NSDictionary *dict = [ESEntryController sharedInstance].entries[indexPath.row];
+//    NSString *title = dict[TitleKey];
     
-    NSString *title = dict[TitleKey];
-    
-    cell.textLabel.text = title;
+    cell.textLabel.text = entry.title;
     
     return cell;
     

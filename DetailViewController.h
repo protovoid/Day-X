@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DXEntry.h"
 
 // static NSString * const EntryKey = @"entry";
 
 @interface DetailViewController : UIViewController
 
 
-@property (strong, nonatomic) NSDictionary *dictionary;
+// @property (strong, nonatomic) NSDictionary *dictionary;
 
-- (void)updateWithDictionary:(NSDictionary *)dictionary;
+//- (void)updateWithDictionary:(NSDictionary *)dictionary;
+
+- (void)updateEntry:(DXEntry *)entry;
 
 
 @end
