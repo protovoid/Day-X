@@ -35,6 +35,7 @@
     self.textField.delegate = self;
     self.textView.delegate = self;
     self.textField.placeholder = @"Title";
+    self.textView.text = @"";
 
     // [self updateWithDictionary:self.dictionary];
     [self updateEntry:_myEntry];
