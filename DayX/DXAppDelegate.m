@@ -8,7 +8,7 @@
 
 #import "DXAppDelegate.h"
 #import "DXListViewController.h"
-#import "DetailViewController.h"
+// #import "DetailViewController.h"
 
 static NSString * const launchCount = @"launchCount";
 // static NSString * const launchCountValue = @"launchCountValue";
@@ -46,11 +46,6 @@ static NSString * const launchCount = @"launchCount";
     [[NSUserDefaults standardUserDefaults] synchronize];
      */
 
-    
-     
-    
-    
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

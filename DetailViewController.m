@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"New Entry";
+    self.title = @"Edit Entry";
     self.view.backgroundColor = [UIColor yellowColor];
     self.textField.delegate = self;
     self.textView.delegate = self;

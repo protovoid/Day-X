@@ -37,6 +37,9 @@
     
     [self.view addSubview:self.tableView];
     
+    // [self canEditRowAtIndexPath:self];
+    
+    
     // add + button to add entry
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newEntry:)];
     
@@ -73,9 +76,41 @@
     
     
 }
-                      
-                      
-                      
+
+
+
+// sets row editing style
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleNone; // no delete button
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return YES - able to delete all rows
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // delete code goes here
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[ESEntryController sharedInstance] removeEntry:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // create new instance of appropriate class
+        // insert it into array and add a new row to the tableview
+    }
+
+    //[[ESEntryController sharedInstance] removeEntry:entry];
+    [tableView reloadData];
+    NSLog(@"Deleted row.");
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
